@@ -1,0 +1,13 @@
+{% extends 'home.html'%}
+{% block  content%}
+<h3>哈哈，你认错人啦</h3>
+{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+<h3>哈哈，我喜欢你</h3>
+{% endblock %}
+
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock %}

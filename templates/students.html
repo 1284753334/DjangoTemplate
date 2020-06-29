@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% for student in students %}
+    <li>{{ forloop.revcounter }}:{{ student.s_name }}</li>
+{% empty %}
+    {{ "没有插询到数据" }}
+
+
+
+
+{% endfor %}
+
+<hr>
+{% for student in students %}
+    <li>{{ student.get_name }}</li>
+{% endfor %}
+
+<hr>
+<h3>{{ students.0.s_name }}</h3>
+
+<hr>
+<h3>{{ student_dict.hobby }}</h3>
+# 转大写
+<h3>{{ student_dict.hobby|upper}}</h3>
+# 转小写
+<h3>{{ student_dict.hobby|lower}}</h3>
+
+# first 和 last 的使用
+{% for student in students %}
+    {% if forloop.first %}
+        <li style="color: red">{{ student.get_name }}</li>
+    {% elif forloop.last %}
+        <li style="color: green">{{ student.get_name }}</li>
+    {% else %}
+        <li>{{ student.get_name }}</li>
+    {% endif %}
+{% endfor %}
+{# 找不到我吧 #}
+<!--  你说的什么 -->
+
+
+
+{%  comment %}
+
+efd
+sdf
+sdf
+{%  endcomment %}
+
+<hr>
+<h3>{{ count }}</h3>
+# 乘法
+<h4>{% widthratio count 1  5%}</h4>
+# 除法
+<h4>{% widthratio count 5 1 %}</h4>
+# 加法
+<h4>{{ count|add:1 }} </h4>
+# 减法
+<h4>{{ count|add:-2 }} </h4>
+
+
+<hr>
+# 隔行变色，判断 对2 整除
+{% for student in students %}
+    {% if forloop.counter|divisibleby:2 %}
+        <li style="color: aquamarine">{{ student.s_name}}</li>
+    {% else %}
+        <li style="color: greenyellow">{{ student.s_name}}</li>
+    {% endif %}
+
+
+{% endfor %}
+
+<hr>
+# 让第五行变色
+{% for student in students %}
+    {% ifequal forloop.counter 5 %}
+
+        <li style="color: aquamarine">{{ student.s_name}}</li>
+    {% else %}
+        <li style="color: black">{{ student.s_name}}</li>
+    {% endifequal%}
+
+{%  endfor %}
+{# <h3>{{ code|safe }}</h3> #}
+{% autoescape off %}
+<h3>{{ code }}</h3>
+{% endautoescape %}
+</body>
+</html>

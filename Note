@@ -1,0 +1,109 @@
+# Django
+
+## SQLite
+-轻量级嵌入式数据库
+ 特点是小
+ -常用场景
+ Android IOS wp
+-该数据库与MySQLX相似度百分之95
+
+
+## 快捷键
+-  万能键
+        Alt+ Enter
+
+# 实现一个请求
+- 注册一个路由
+        urls中
+        -url
+            -参数  匹配规则 zhengze
+        视图函数
+            -对应的是views中的一个函数
+            --没有括号
+  - 去views实现对应的视图函数
+    - 第一个参数是 request
+    - 永远记得返回 Response
+
+
+    ## html
+    ul*5  Tab   自动补全 5 个标签
+    ul>li*5     自动补全 ul  包含 5 个 li标签
+    ##
+
+    ## 模板配置
+    一  在应用中配置（了解  不方便 继承 ）
+    在setting 中 注册 该 app
+    在应用下创建templates 模板,并标记为模板文件夹
+
+    二   在工程（项目）下创建 templates，并标记为模板文件夹（推荐使用 方便使用）
+
+    在setting 中  声明  模板  路径
+
+    在主urls 中声明  url（‘^Two/$’,include(Two.urls)）
+
+
+
+    ##路由优化配置
+
+        - 项目如果逻辑过于复杂，可以进行拆分
+        -拆分为多个App
+        --继续拆分路由 urls
+            -在app 中创建自己的路由
+                -urlpattrerns 路由规则列表
+                -在根路由中进行子路由的包含
+               -子路由使用
+                    -根路由 +  子路由的规则进行访问
+
+
+## model 使用了ORM 技术
+-object relational Mapping 对象关系映射
+--将业务逻辑进行了解耦合
+    -object.save()  保存
+    -object.delate() 删除
+——关系型数据库
+    --DDL
+    —— 通过model 定义实现 数据库表的定义
+
+
+Ctrl+p 查看 render()里面参数  鼠标定位到括号里
+
+shift + f6  重命名
+
+
+第三天 记录
+
+快捷键
+control + d  复制一行，粘贴到下面
+alt+ shift + ↑ ↓  移动位置
+
+标签
+    {% %} 标识符
+    标签分为单标签和 双标签
+    成对的标签切记不能省略 开始标签 和 结束标签
+
+
+结构标签
+        block  块  作用： 用来规划我们的布局（挖坑）
+
+        首次出现 代表出现
+        第二次出现 代表 填充 以前的规划
+        第三次出现 ， 代表填充以前的规划， 默认动作 会覆盖 ，
+        若调用 {{block.super }} 可以 实现 增量式操作（继承）
+
+        extends  继承  可以获取 父 模块中的 所有结构
+
+        blocker + extends
+         化整为零
+
+         include  包含
+
+                    可以将页面作为一部分 嵌入到其他页面中
+
+                    由零聚一
+                    三个标签可以一起用
+                    首推 extends + block   include   效率低
+
+
+
+
+
